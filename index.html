@@ -1263,14 +1263,13 @@
 
     function openCardModal(
       imageUrl,
-      qrImageUrl,
       title
     ) {
 
       document.getElementById(
         "detailImage"
       ).src =
-        qrImageUrl || imageUrl || "";
+        imageUrl || "";
 
 
       document.getElementById(
