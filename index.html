@@ -1182,9 +1182,9 @@
             () => {
 
               openCardModal(
-                card.image_url,
-                card.qr_image,
-                coordinateName
+                card.qr_image || 
+          card.image_url,
+                coordinateName  
               );
 
             }
@@ -1263,16 +1263,13 @@
 
     function openCardModal(
       imageUrl,
-      qrImageUrl,
       title
     ) {
-
-      alert(qrImageUrl);
 
       document.getElementById(
         "detailImage"
       ).src =
-        qrImageUrl || imageUrl || "";
+        imageUrl || "";
 
 
       document.getElementById(
