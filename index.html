@@ -446,6 +446,10 @@
 
       background: #f8f8fa;
     }
+    .qr-image {
+  max-height: 50vh;
+  margin-top: 18px;
+}
 
     .detail-title {
       margin: 0;
@@ -655,6 +659,12 @@
         class="detail-image"
         src=""
         alt=""
+      >
+      <img
+        id="detailQrImage"
+        class="qr-image"
+        src=""
+        alt="QRコード"
       >
 
       <h3
@@ -1262,54 +1272,60 @@
     ===================================================== */
 
     function openCardModal(
-      imageUrl,
-      title
-    ) {
+  imageUrl,
+  qrImageUrl,
+  title
+) {
 
-      document.getElementById(
-        "detailImage"
-      ).src =
-        imageUrl || "";
-
-
-      document.getElementById(
-        "detailImage"
-      ).alt =
-        title || "";
+  document.getElementById(
+    "detailImage"
+  ).src =
+    imageUrl || "";
 
 
-      document.getElementById(
-        "detailTitle"
-      ).textContent =
-        title || "";
+  document.getElementById(
+    "detailImage"
+  ).alt =
+    title || "";
 
 
-      document.getElementById(
-        "cardModal"
-      ).classList.add(
-        "show"
-      );
-    }
+  const qrImage =
+    document.getElementById(
+      "detailQrImage"
+    );
 
 
-    document
-      .getElementById(
-        "cardModalClose"
-      )
-      .addEventListener(
-        "click",
-        () => {
+  if (qrImageUrl) {
 
-          document
-            .getElementById(
-              "cardModal"
-            )
-            .classList.remove(
-              "show"
-            );
+    qrImage.src =
+      qrImageUrl;
 
-        }
-      );
+    qrImage.style.display =
+      "block";
+
+  } else {
+
+    qrImage.src =
+      "";
+
+    qrImage.style.display =
+      "none";
+
+  }
+
+
+  document.getElementById(
+    "detailTitle"
+  ).textContent =
+    title || "";
+
+
+  document.getElementById(
+    "cardModal"
+  ).classList.add(
+    "show"
+  );
+}
 
 
     /* =====================================================
