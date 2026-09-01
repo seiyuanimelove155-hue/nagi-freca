@@ -652,8 +652,6 @@
       <button
         id="cardModalClose"
         class="modal-close"
-  onclick="document.getElementById('cardModa
-  l').classList.remove('show')"
       >
         ×
       </button>
@@ -1275,9 +1273,9 @@
     ===================================================== */
 
     function openCardModal(
-  imageUrl,
-  qrImageUrl,
-  title
+          imageUrl,
+          qrImageUrl,
+          title
 ) {
 
   document.getElementById(
@@ -1354,6 +1352,24 @@
         }
       );
 
+    document
+      .getElementById(
+        "cardModalClose"
+      )
+      .addEventListener(
+        "click",
+        () => {
+
+          document
+            .getElementById(
+              "cardModal"
+            )
+            .classList.remove(
+              "show"
+           );
+
+    }
+  );
 
     document
       .getElementById(
