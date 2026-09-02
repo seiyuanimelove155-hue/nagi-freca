@@ -1221,6 +1221,88 @@
       );
     }
 
+          const totalPages =
+            Math.ceil(filteredCards.length / 
+        cardsPerPage);
+
+          if (currentPage > totalPages) {
+            currentPage = totalPages;
+          }
+
+          if (totalPages > 1) {
+            const pagination =
+              document.createElement("div");
+
+            pagination.id = "pagination";
+            pagination.className =
+        "pagination";
+
+            if (currentPage > 1) {
+              const prevButton =
+                
+        document.createElement("button");
+
+              prevButton.textContent = "‹ 前
+        へ";
+              prevButton.addEventListener(
+                "click",
+                () => {
+                  currentPage--;
+                  renderCards();
+                }
+              );
+
+         pagination.appendChild(prevButton);
+             }
+
+             for (
+               let page = 1;
+               page <= totalPages;
+               page++
+             ) {
+               const pageButton =
+                 
+          document.createElement("button");
+
+                pageButton.textContent = page;
+
+                if (page === currentPage) {
+          pageButton.classList.add("active");
+                }
+
+          pageButton.addEventListener(
+            "click",
+            () => {
+              currentPage = page;
+              renderCards();
+            }
+          );
+
+           pagination.appendChild(pageButton);
+               }
+
+               if (currentPage < totalPages) {
+                 const nextButton =
+                   
+           document.createElement("button");
+
+                 nextButton.textContent = "次
+          へ ›";
+                 nextButton.addEventListener(
+                  "click",
+                  () => {
+                    currentPage++;
+                    renderCards();
+                  }
+                );
+
+            pagination.appendChild(nextButton);
+                }
+
+            container.parentElement.appendChild(
+                  pagination
+                );
+              }
 
     /* =====================================================
        キャラクター見出し
