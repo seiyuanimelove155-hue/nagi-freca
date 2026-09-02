@@ -1027,7 +1027,9 @@
     /* =====================================================
        コーデ名を取得
     ===================================================== */
-
+    let currentPage = 1;
+    const cardsPerPage = 20;
+    
     function getCoordinateName(card) {
 
       return (
@@ -1132,7 +1134,16 @@
       container.innerHTML = "";
 
 
-      filteredCards.forEach(
+      const startIndex =
+        (currentPage - 1) * cardsPerPage;
+
+      const paginatedCards =
+        filteredCards.slice(
+          startIndex,
+          startIndex + cardsPerPage
+        );
+
+      paginatedCards.forEach(
         card => {
 
           const item =
