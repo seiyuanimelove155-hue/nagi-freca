@@ -1222,11 +1222,6 @@
 
   const totalPages =
     Math.ceil(filteredCards.length / cardsPerPage);
-
-// 現在のページが存在しない場合は、最後のページに戻す
-if (currentPage > totalPages) {
-  currentPage = Math.max(totalPages, 1);
-}
       
   const oldPagination =
     document.getElementById("pagination");
