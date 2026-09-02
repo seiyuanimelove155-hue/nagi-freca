@@ -1219,6 +1219,53 @@
 
         }
       );
+
+  const totalPages =
+    Math.ceil(filteredCards.length / cardsPerPage);
+
+  const oldPagination =
+    document.getElementById("pagination");
+
+  if (oldPagination) {
+    oldPagination.remove();
+  }
+
+  if (totalPages > 1) {
+    const pagination =
+      document.createElement("div");
+
+    pagination.id = "pagination";
+
+    for (
+      let page = 1;
+      page <= totalPages;
+      page++
+    ) {
+      const button =
+        document.createElement("button");
+
+      button.textContent = page;
+
+      if (page === currentPage) {
+        button.disabled = true;
+      }
+
+      button.addEventListener(
+        "click",
+        () => {
+          currentPage = page;
+          renderCards();
+        }
+      );
+
+      pagination.appendChild(button);
+    }
+
+    container.parentElement.appendChild(
+      pagination
+    );
+  }
+      
     }
 
     /* =====================================================
