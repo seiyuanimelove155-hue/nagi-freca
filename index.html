@@ -1267,6 +1267,29 @@ if (currentPage > totalPages) {
     }
   });
 
+    // ページ番号
+for (let page = 1; page <= totalPages; page++) {
+  const pageButton = document.createElement("button");
+
+  pageButton.textContent = page;
+
+  if (page === currentPage) {
+    pageButton.disabled = true;
+  }
+
+  pageButton.addEventListener("click", () => {
+    currentPage = page;
+    renderCards();
+
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth"
+    });
+  });
+
+  pagination.appendChild(pageButton);
+}
+
   // 下のページへ
   const nextButton = document.createElement("button");
   nextButton.textContent = "＞";
