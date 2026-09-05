@@ -912,6 +912,21 @@
               selectedCharacterId =
                 character.id;
 
+              const characterCards =
+  cards.filter(
+    card => card.character_id === selectedCharacterId
+  );
+
+const totalPages =
+  Math.max(
+    1,
+    Math.ceil(characterCards.length / cardsPerPage)
+  );
+
+if (currentPage > totalPages) {
+  currentPage = totalPages;
+}
+
 
               document
                 .querySelectorAll(
