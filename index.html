@@ -1252,7 +1252,7 @@ if (currentPage > totalPages) {
 
   // 上のページへ
   const prevButton = document.createElement("button");
-  prevButton.textContent = "↑";
+  prevButton.textContent = "＜";
   prevButton.disabled = currentPage === 1;
 
   prevButton.addEventListener("click", () => {
@@ -1269,7 +1269,7 @@ if (currentPage > totalPages) {
 
   // 下のページへ
   const nextButton = document.createElement("button");
-  nextButton.textContent = "↓";
+  nextButton.textContent = "＞";
   nextButton.disabled = currentPage === totalPages;
 
   nextButton.addEventListener("click", () => {
