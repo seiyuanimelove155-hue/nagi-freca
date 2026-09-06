@@ -1292,7 +1292,6 @@ for (let page = 1; page <= totalPages; page++) {
   pagination.appendChild(pageButton);
 }
 
-    pagination.appendChild(nextButton);
 
   // 下のページへ
   const nextButton = document.createElement("button");
@@ -1311,7 +1310,7 @@ for (let page = 1; page <= totalPages; page++) {
     }
   });
 
-  
+  pagination.appendChild(nextButton);
   
 
   container.parentElement.appendChild(pagination);
