@@ -1259,10 +1259,17 @@ if (currentPage > totalPages) {
   const oldPagination =
     document.getElementById("pagination");
 
-  if (oldPagination) {
+if (oldPagination) {
     oldPagination.remove();
-  }
+}
 
+const oldTopPagination =
+    document.getElementById("pagination-top");
+
+if (oldTopPagination) {
+    oldTopPagination.remove();
+}
+  
   if (totalPages > 1) {
   const pagination = document.createElement("div");
   pagination.id = "pagination";
