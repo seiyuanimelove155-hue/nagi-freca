@@ -1323,6 +1323,47 @@ for (let page = 1; page <= totalPages; page++) {
   
 
   container.parentElement.appendChild(pagination);
+
+const topPagination = pagination.cloneNode(true);
+topPagination.id = "pagination-top";
+
+topPagination.querySelectorAll("button").forEach(button => {
+  button.addEventListener("click", () => {
+    const value = button.textContent;
+
+    if (value === "<") {
+      if (currentPage > 1) {
+        currentPage--;
+        renderCards();
+        window.scrollTo({
+          top: 0,
+          behavior: "smooth"
+        });
+      }
+    } else if (value === ">") {
+      if (currentPage < totalPages) {
+        currentPage++;
+        renderCards();
+        window.scrollTo({
+          top: 0,
+          behavior: "smooth"
+        });
+      }
+    } else {
+      currentPage = Number(value);
+      renderCards();
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+      });
+    }
+  });
+});
+
+container.parentElement.insertBefore(
+  topPagination,
+  container
+);
 }
       
     }
