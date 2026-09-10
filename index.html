@@ -1325,7 +1325,7 @@ for (let page = 1; page <= totalPages; page++) {
 
   nextButton.addEventListener("click", () => {
     if (currentPage < totalPages) {
-      currentPage++;
+      currentPage = Math.max(currentPage - 1, 1);
       renderCards();
 
       window.scrollTo({
