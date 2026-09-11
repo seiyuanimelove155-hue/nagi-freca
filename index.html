@@ -1275,25 +1275,7 @@ if (oldTopPagination) {
   pagination.id = "pagination";
     pagination.style.gap = "8px";
 
-  // 上のページへ
-  const prevButton = document.createElement("button");
-  prevButton.textContent = "＜";
-  prevButton.disabled = currentPage === 1;
-
-  prevButton.addEventListener("click", () => {
-    if (currentPage > 1) {
-      currentPage--;
-      renderCards();
-
-      window.scrollTo({
-        top: 0,
-        behavior: "smooth"
-      });
-    }
-  });
-
-    pagination.appendChild(prevButton);
-
+    
     // ページ番号
 for (let page = 1; page <= totalPages; page++) {
   const pageButton = document.createElement("button");
@@ -1317,26 +1299,6 @@ for (let page = 1; page <= totalPages; page++) {
   pagination.appendChild(pageButton);
 }
 
-
-  // 下のページへ
-  const nextButton = document.createElement("button");
-  nextButton.textContent = "＞";
-  nextButton.disabled = currentPage === totalPages;
-
-  nextButton.addEventListener("click", () => {
-    if (currentPage < totalPages) {
-      currentPage = Math.min(currentPage + 1, totalPages);
-      renderCards();
-
-      window.scrollTo({
-        top: 0,
-        behavior: "smooth"
-      });
-    }
-  });
-
-  pagination.appendChild(nextButton);
-  
 
   container.parentElement.appendChild(pagination);
 
